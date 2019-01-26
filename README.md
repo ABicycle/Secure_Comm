@@ -38,7 +38,7 @@ Implementing secure communication over LAN.
 * **user_entry(username, password)** -> Used to enter the user data to the `users` database.
 * **group_entry(group_name, username, password, key)** -> Used to enter the user data to a group, along with a random key specified by the server.
 
-##Improvements to be done
+## Improvements to be done
 * Implementing chat section.
 * Encrypting passwords.
 * RSA encryption and decryption is a quite time consuming process. Need to manage every chat message, efficiently breaking it into chunks, and performing RSA algorithms on them concurrently, to speed up the process.
