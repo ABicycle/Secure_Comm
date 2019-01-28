@@ -14,6 +14,7 @@ class Peer:
         self.pub_k=(e, n)
         d=self.crypt.private_key(tuple, e)
         self.priv_k=(d, n)
+        print(self.pub_k)
 
     def connection(self):
         self.node.connect((self.ip, self.port))
