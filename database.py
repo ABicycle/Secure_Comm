@@ -16,6 +16,13 @@ class Data:
         query="CREATE TABLE IF NOT EXISTS {}(unix REAL, datestamp TEXT, username TEXT, password TEXT, key TEXT)".format(name)
         self.c.execute(query)
 
+    def get_all_tables(self):
+        output=[]
+        self.c.execute("SELECT name from sqlite_master WHERE type='table'")
+        for i in self.c.fetchall():
+            output.append(''.join(i))
+        return output
+
     def check_table(self, name, username, password):
         self.c.execute("SELECT * FROM {}".format(name))
         for row in self.c.fetchall():
@@ -42,5 +49,6 @@ class Data:
 
 if __name__=="__main__":
     obj=Data()
-    obj.read_table("users")
-    obj.read_table("ABC")
+    tables=obj.get_all_tables()
+    for i in tables:
+        obj.read_table(i)
